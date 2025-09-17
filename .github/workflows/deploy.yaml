@@ -1,0 +1,11 @@
+name: Deploy
+
+on: pull_request
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: tj-actions/branch-names@v4
