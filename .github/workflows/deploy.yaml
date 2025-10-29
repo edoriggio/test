@@ -1,11 +1,17 @@
-name: Deploy
+name: "Validate Gradle Wrapper"
 
-on: pull_request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
-    name: Build
+  validation:
+    name: "Validation"
     runs-on: ubuntu-latest
-
     steps:
-      - uses: docker/setup-compose-action@v1
+      - uses: actions/checkout@v4
+      - uses: gradle/wrapper-validation-action@v1
